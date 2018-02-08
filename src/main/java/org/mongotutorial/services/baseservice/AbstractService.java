@@ -24,8 +24,8 @@ public abstract class AbstractService<E, DAO extends GenericDAO<E>> implements G
     }
 
     @Override
-    public void create(E e) {
-        dao.create(e);
+    public ObjectId create(E e) {
+        return dao.create(e);
     }
 
     @Override

@@ -10,7 +10,7 @@ public interface GenericService<E> {
 
     List<E> findAll();
 
-    void create(E e);
+    ObjectId create(E e);
 
     void update(E e);
 

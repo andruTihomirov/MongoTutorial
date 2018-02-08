@@ -13,7 +13,7 @@ public interface GenericDAO<E> {
 
     List<E> findAll();
 
-    void create(E e);
+    ObjectId create(E e);
 
     void update(E e);
 

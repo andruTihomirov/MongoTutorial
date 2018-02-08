@@ -13,9 +13,9 @@ public class AuthorController {
 
     private AuthorService authorService = new AuthorServiceImpl(new AuthorDAOImpl(new AuthorMapper()));
 
-    public void createAuthor(String login, String password) {
+    public ObjectId createAuthor(String login, String password) {
         Author author = new Author(login, password);
-        authorService.create(author);
+        return authorService.create(author);
     }
 
     public List<Author> findAllAuthors() {

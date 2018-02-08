@@ -7,6 +7,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.mongotutorial.model.BaseEntity;
+import org.mongotutorial.model.constants.BaseConstants;
 import org.mongotutorial.model.mapping.Mapper;
 
 import java.util.ArrayList;
@@ -49,9 +50,10 @@ public abstract class AbstractDAO<E extends BaseEntity> implements GenericDAO<E>
     }
 
     @Override
-    public void create(E e) {
+    public ObjectId create(E e) {
         Document document = mapper.toDocument(e);
         collection.insertOne(document);
+        return document.getObjectId(BaseConstants.ID);
     }
 
     @Override
@@ -72,4 +74,5 @@ public abstract class AbstractDAO<E extends BaseEntity> implements GenericDAO<E>
     }
 
     protected abstract String getCollectionName();
+
 }
