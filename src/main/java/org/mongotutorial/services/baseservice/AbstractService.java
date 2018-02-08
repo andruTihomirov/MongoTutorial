@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class AbstractService<E, DAO extends GenericDAO<E>> implements GenericService<E> {
 
-    private DAO dao;
+    protected DAO dao;
 
     public AbstractService(DAO dao) {
         this.dao = dao;
@@ -35,7 +35,7 @@ public abstract class AbstractService<E, DAO extends GenericDAO<E>> implements G
 
     @Override
     public void delete(ObjectId id) {
-
+        dao.delete(id);
     }
 
     public DAO getDao() {

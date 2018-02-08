@@ -7,7 +7,6 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.mongotutorial.model.BaseEntity;
-import org.mongotutorial.model.constants.BaseConstants;
 import org.mongotutorial.model.mapping.Mapper;
 
 import java.util.ArrayList;
@@ -64,12 +63,12 @@ public abstract class AbstractDAO<E extends BaseEntity> implements GenericDAO<E>
 
     @Override
     public void delete(ObjectId id) {
-
+        collection.deleteOne(eq(id));
     }
 
     @Override
     public boolean isExist(ObjectId id) {
-        return false;
+        return collection.count(eq(id)) > 0;
     }
 
     protected abstract String getCollectionName();

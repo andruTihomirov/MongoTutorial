@@ -22,4 +22,9 @@ public class CommentServiceImpl extends AbstractService<Comment, CommentDAO> imp
     public List<Comment> findCommentsByPostId(ObjectId postId) {
         return null;
     }
+
+    @Override
+    public boolean isExist(ObjectId id) {
+        return dao.isExist(id);
+    }
 }

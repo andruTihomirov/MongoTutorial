@@ -27,4 +27,9 @@ public class PostServiceImpl extends AbstractService<Post, PostDAO> implements P
     public Post findPostByTitle(String title) {
         return null;
     }
+
+    @Override
+    public boolean isExist(ObjectId id) {
+        return dao.isExist(id);
+    }
 }

@@ -24,12 +24,13 @@ public class AuthorControllerCases {
         author.setPassword("!V@noV_77");
         authorController.updateAuthor(author);
 
+        // TODO: not implements yet
         authorController.activateAuthor(author.getId());
-
         authorController.deactivateAuthor(author.getId());
 
-        // TODO: check if the author exists
-        authorController.deleteAuthor(author.getId());
+        if (authorController.isAuthorExist(author.getId())) {
+            authorController.deleteAuthor(author.getId());
+        }
 
     }
 

@@ -16,4 +16,6 @@ public interface GenericService<E> {
 
     void delete(ObjectId id);
 
+    boolean isExist(ObjectId id);
+
 }

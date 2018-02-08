@@ -42,4 +42,8 @@ public class AuthorController {
         authorService.delete(id);
     }
 
+    public boolean isAuthorExist(ObjectId id) {
+        return authorService.isExist(id);
+    }
+
 }

@@ -13,13 +13,20 @@ public class AuthorServiceImpl extends AbstractService<Author, AuthorDAO> implem
 
     @Override
     public void deactivateAuthor(ObjectId id) {
-
+        Author author = dao.find(id);
+        author.setActive(false);
+        dao.update(author);
     }
 
     @Override
     public void activateAuthor(ObjectId id) {
-
+        Author author = dao.find(id);
+        author.setActive(true);
+        dao.update(author);
     }
 
-
+    @Override
+    public boolean isExist(ObjectId id) {
+        return dao.isExist(id);
+    }
 }
